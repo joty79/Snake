@@ -18,4 +18,4 @@ $(MAIN): $(OBJS)
 	$(CXX) $(CXXFLAGS) $(INCLUDES) -c $< -o $@
 
 clean:
-	rm -f *.o *.exe
+	del /Q *.o *.exe

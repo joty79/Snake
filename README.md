@@ -1,6 +1,17 @@
 # Snake Game
 
-A classic Snake game implemented in C++ using SDL2.
+A classic Snake game implementation using SDL2.
+
+## Building and Running
+
+### Prerequisites
+- MSYS2 with MinGW-w64
+- SDL2 development libraries
+- C++ compiler (g++)
+
+### Build Instructions
+
+#### Using MSYS2 UCRT64 Terminal
 
 ## Prerequisites
 
@@ -45,15 +56,35 @@ A classic Snake game implemented in C++ using SDL2.
 
 ## Building
 
-1. Clean and build:
+1. You can build the game in three ways:
+
+   #### Using MSYS2 UCRT64 Terminal:
    ```bash
    make clean && make
    ```
+   or using the shell script:
+   ```bash
+   ./run.sh
+   ```
+   (make sure to give execute permission first with: chmod +x run.sh)
+
+   #### Using Windows Terminal (CMD/PowerShell):
+   ```bash
+   mingw32-make clean && mingw32-make
+   ```
+   or simply:
+   ```bash
+   make clean
+   ```
+   (using the provided make.bat)
 
 2. If you get any errors:
-   - Make sure you're using the UCRT64 terminal
+   - Make sure you're using the correct terminal and commands
    - Check if all paths in Makefile match your MSYS2 installation
    - Verify SDL2 is properly installed
+
+Note: Even though you're on Windows, you can use the Unix-style shell script (run.sh) 
+in the MSYS2 UCRT64 terminal because it provides a Unix-like environment.
 
 ## Running
 
