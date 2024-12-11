@@ -7,6 +7,7 @@
 #define WINDOW_HEIGHT 1080   // Increased for full HD
 #define GRID_SIZE 25        // Slightly larger grid cells
 #define GRID_DIM 750        // Larger overall grid
+const int INITIAL_SNAKE_SIZE = 4;  // ή όποιο μέγεθος θέλετε να έχει αρχικά
 
 class Game {
 private:
@@ -127,6 +128,11 @@ public:
         head->y = GRID_DIM/(GRID_SIZE*2);
         head->dir = SNAKE_RIGHT;
         
+        // Προσθέτουμε τα αρχικά τμήματα του φιδιού
+        for(int i = 0; i < INITIAL_SNAKE_SIZE - 1; i++) {  // -1 γιατί το head υπάρχει ήδη
+            increase_snake();
+        }
+        
         // Reset score
         apple.count = 0;
         
@@ -187,7 +193,7 @@ public:
         SDL_RenderFillRect(renderer, &rect);
     }
 
-    void render_score(int x, int y) {
+    void render_score([[maybe_unused]] int x, [[maybe_unused]] int y) {
         // Move score to top-left corner
         int score_text_x = 50;  // Fixed position from left edge
         int score_y = 50;       // Fixed position from top edge
@@ -376,7 +382,7 @@ public:
         if(quit) return;       // Exit if user closed window
 
         init_snake();
-        for(int i = 0; i < 4; i++) {
+        for(int i = 0; i < INITIAL_SNAKE_SIZE - 1; i++) {  // -1 γιατί το head υπάρχει ήδη
             increase_snake();
         }
         gen_apple();
@@ -533,7 +539,7 @@ public:
     }
 };
 
-int SDL_main(int argc, char* argv[]) {
+int SDL_main([[maybe_unused]] int argc, [[maybe_unused]] char* argv[]) {
     Game game;
     game.run();
     return 0;
