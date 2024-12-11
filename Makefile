@@ -1,8 +1,8 @@
 CXX = g++
 CXXFLAGS = -Wall -Wextra
 LIBS = -lmingw32 -lSDL2main -lSDL2 -mwindows
-INCLUDES = -ID:/Compilers/msys64/mingw64/include/SDL2
-LDFLAGS = -LD:/Compilers/msys64/mingw64/lib
+INCLUDES = -ID:/Compilers/msys64/ucrt64/include/SDL2
+LDFLAGS = -LD:/Compilers/msys64/ucrt64/lib
 SRCS = snake.cpp
 OBJS = $(SRCS:.cpp=.o)
 MAIN = snake.exe
@@ -18,4 +18,4 @@ $(MAIN): $(OBJS)
 	$(CXX) $(CXXFLAGS) $(INCLUDES) -c $< -o $@
 
 clean:
-	del /Q *.o *.exe
+	rm -f *.o *.exe
